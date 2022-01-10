@@ -13,7 +13,7 @@ const intlMessages = defineMessages({
   },
   copyright: {
     id: 'app.about.copyright',
-    defaultMessage: (new Date().getFullYear()),
+    defaultMessage: new Date().getFullYear(),
     description: 'Client copyright label',
   },
   confirmLabel: {
@@ -44,6 +44,7 @@ const AboutComponent = ({ intl, clientBuild, copyright }) => (
   >
     {`${intl.formatMessage(intlMessages.copyright)} ${copyright}`}
     <br />
+    <p>teste</p>
     {`${intl.formatMessage(intlMessages.version)} ${clientBuild}`}
   </Modal>
 );
