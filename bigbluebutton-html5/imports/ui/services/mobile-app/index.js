@@ -185,6 +185,16 @@ import logger from '/imports/startup/client/logger';
             } );
         }
 
+
+        const KurentoScreenShareBridge = require('/imports/api/screenshare/client/bridge/index.js').default;          
+        //Kurento Screen Share
+        var stopOriginal = KurentoScreenShareBridge.stop.bind(KurentoScreenShareBridge);
+        KurentoScreenShareBridge.stop = function(){  
+            callNativeMethod('stopScreenShare')
+            logger.debug(`BBB-MOBILE - Click on stop screen share`);
+            stopOriginal() 
+        } 
+
     }
 })();
 
